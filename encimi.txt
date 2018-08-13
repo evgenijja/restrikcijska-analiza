@@ -1,0 +1,8 @@
+BclI: T/GATCA
+EcoRI: GAT/ATC
+EcoRV: G/AATTC
+KpnI: GGTAC/C
+NcoI: C/CATGG
+AluI: AG/CT
+DdeI: C/TNAG
+HaeIII: GG/CC
