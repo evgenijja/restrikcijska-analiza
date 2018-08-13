@@ -14,6 +14,7 @@ slovar = {
 #razlikujeta za manj kot 20. Vecjo razliko uporabim v primeru, da se število
 #nukleotidov v eksperimentalnem vzorcu močno razlikuje od pričakovanega vzorca.
 #To pomeni da vzorec ni homogen.
+
 def manjsa_razlika(prvo, drugo):
     return prvo >= drugo - 10 and prvo <= drugo + 10
 
@@ -21,9 +22,6 @@ def vecja_razlika(prvo, drugo):
     return prvo >= drugo - 50 and prvo <= drugo + 50
 
 ################################################################################
-
-#DNA podajamo kot niz brez presledkov, encim pa podamo z zaporedjem pri
-#katerem reže, pri čemer s '/' označimo mesto, kjer reže encim.
 
 class Organizem:
 
@@ -55,13 +53,14 @@ class Organizem:
             koncen_seznam += str(element) + '/'
         self.razrezan = koncen_seznam[:-1]
 
-#Razrezani zaporedji 'se ujemata' v dveh primerih, če se posamezne številke v
-#razrezu razlikujejo za manj kot 20. 
+#Razrezani zaporedji 'se ujemata' če se posamezne številke razlikujejo za manj kot 20,
+#'se ne ujemata,' če se razlikujejo za več kot 20. V primeru, ko je dolžina 
+#razreza določena eksperimentalno močno daljša od dolžine pričakovanega funkcija vrne
+#'vzorec ni homogen.'
     def primerjaj(self, eksperiment):
         '''Dolžino rezov, ki jo določimo eksperimentalno primerja s tem kar vrne funkcija doloci_dolzino_rezov in na koncu vrne: 'se ujemata', 'se ne ujemata' ali 'vzorec ni homogen' '''
         pricakovano = self.razrezan
         eksperiment_s, pricakovano_s = str(eksperiment).split('/'), str(pricakovano).split('/')
-        #najprej pogledam, če eksperimentalni vzorec ni homogen, torej ali je veliko daljši od pričakovanega 
         e, p = 0, 0 #to bosta vsoti nukleotidov v vzorcih, ki jih primerjamo
         for stevilka in eksperiment_s:
             e += int(stevilka)
@@ -106,7 +105,7 @@ class Organizem:
         dna = open(dna_d)
         with open('Dolzine.txt', 'w') as dolzine: #ustvarim novo datoteko
             encimi_str = ''
-            for encim in encimi: #ti koraki so potrebni zaradi načina zapisa encimov v datoteki
+            for encim in encimi: #ti koraki so potrebni zaradi načina zapisa encimov in zaporedij DNA v datotekah
                 if ':' in encim:
                     encim = encim[encim.index(':') + 1:]
                 if '\n' in encim:
@@ -125,12 +124,12 @@ class Organizem:
                     dolzine.write('\n')
             dolzine.close()
 
-#Funkcija je uporabna kadar imamo datoteki s pričakovanimi rezultati in
+#Spodnja funkcija je uporabna kadar imamo datoteki s pričakovanimi rezultati in
 #rezultati, ki smo jih dobili eksperimentalno, pri čemer morata biti enako
-#formulirani. Primerjava je smiselna, če primerjamo enako število DNA zaporedij
+#formulirani - primerjava je smiselna, če primerjamo enako število DNA zaporedij
 #in enako število encimov. 
     def vec_primerjav(self, eksperiment_d): 
-        '''Vzame datoteko z rezultati eksperimentov in datoteko s pricakovanimi dolzinami (ki jo dobimo z zgornjimi funkcijami) - na konc vrne 'se ujema' al pa 'se ne ujema' '''
+        '''Vzame datoteko z rezultati eksperimentov in datoteko s pricakovanimi dolzinami (ki jo dobimo z zgornjimi funkcijami) - na koncu vrne 'se ujemata' al pa 'se ne ujemata' ali 'vzorec ni homogen' '''
         pricakovano_d = self.dna
         eksp = open(eksperiment_d)
         pricak = open(pricakovano_d)
