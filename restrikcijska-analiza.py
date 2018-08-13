@@ -15,7 +15,7 @@ def primerjaj_v(): #v za vmesnik
     organizem.dna, organizem.encim = vhod1.get(), vhod2.get()
     organizem.doloci_dolzino_rezov()
     organizem.primerjaj(vhod3.get())
-    izhod2.configure(text='levo dobimo {}, torej {}'.format(organizem.razrezan, organizem.ujemanje))
+    izhod2.configure(text='Zgoraj dobimo {}, torej {}'.format(organizem.razrezan, organizem.ujemanje))
 
 def razrez_z_vec_encimi_v():
     organizem.dna = vhod4.get()
