@@ -1,9 +1,9 @@
 # Restrikcijska analiza
 
-Uvod
-Restrikcijska analiza je postopek, ki se uporablja v biokemiji, kadar nas zanima, kako restrikcijske endonukleaze (posebna vrsta encimov) razrežejo dano nukleotidno zaporedje. Postopek lahko poteka na dva načina: In silico (s pomočjo tega programa) ali pa In vitro (eksperimentalno). Združitev obeh načinov bi lahko v teoriji vodila do identifikacije neznanega organizma, v praksi pa je zaradi nenatančnosti eksperimentalnega dela to težko izvedljivo. Postopek je bolj uporaben za potrditev prisotnosti nekega organizma ali pa določanje homogenosti oziroma heterogenosti neznanega vzorca.
+## Uvod
+Restrikcijska analiza je postopek, ki se uporablja v biokemiji, kadar nas zanima, kako restrikcijske endonukleaze (posebna vrsta encimov) razrežejo dano nukleotidno zaporedje. Postopek lahko poteka na dva načina: *In silico* (s pomočjo tega programa) ali pa *In vitro* (eksperimentalno). Združitev obeh načinov bi lahko v teoriji vodila do identifikacije neznanega organizma, v praksi pa je zaradi nenatančnosti eksperimentalnega dela to težko izvedljivo. Postopek je bolj uporaben za potrditev prisotnosti nekega organizma ali pa določanje homogenosti oziroma heterogenosti neznanega vzorca.
 
-Delovanje programa
+## Delovanje programa
 Program se ukvarja z DNA zaporedji, ki jih podajamo kot niz brez presledkov, in restrikcijskimi endonukleazami (od zdaj naprej encimi), za katere je značilno, da vsakič, ko se pojavi točno določeno zaporedje nukleotidov, DNA verigo razrežejo. Za vsak encim obstaja neko določeno kratko zaporedje in mesto, kjer reže. Recimo encim BclI reže vsakič, ko se pojavi zaporedje TGATCA, mesto reza pa označimo s /, zaporedje za ta encim bi tako bilo: T/GATCA. Nekateri encimi lahko režejo več zaporedij, kar se označi s spremenljivkami, ki jih najdemo v slovarju na začetku modela. 
 V prvem delu programa lahko pogledamo kako neko zaporedje za encim razreže poljubno DNA zaporedje. Nato lahko dobljen 'razrez' primerjamo z nečim, kar smo določili v laboratoriju. Če je razlika dovolj majhna zaključimo, da se DNA zaporedji ujemata, če je razlika velika, se ne ujemata, če pa je razlika v dolžini DNA verige občutno prevelika pa pomeni, da eksperimentalen vzorec ni bil homogen (dobili smo razrez dveh ali več organizmov).
 V drugem delu programa lahko pogledamo, kako poljubno zaporedje DNA reže več encimov.
